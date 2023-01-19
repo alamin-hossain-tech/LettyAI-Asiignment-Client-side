@@ -19,7 +19,7 @@ function App() {
   const [open, setOpen] = useState(false);
   const handleOpen = (id) => {
     setOpen(true);
-    fetch(`http://localhost:4000/data/${id}`)
+    fetch(`https://lettyai-task-server.vercel.app/data/${id}`)
       .then((res) => res.json())
       .then((data) => setIdData(data));
     console.log(idData);
@@ -32,7 +32,7 @@ function App() {
   console.log(data);
 
   useEffect(() => {
-    fetch("http://localhost:4000/data")
+    fetch("https://lettyai-task-server.vercel.app/data")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [message]);
@@ -46,7 +46,7 @@ function App() {
     };
 
     if (inputValue !== "") {
-      fetch("http://localhost:4000/add", {
+      fetch("https://lettyai-task-server.vercel.app/add", {
         method: "POST",
         headers: {
           "content-type": "application/json",
