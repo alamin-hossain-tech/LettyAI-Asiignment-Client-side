@@ -19,12 +19,15 @@ function App() {
   const [open, setOpen] = useState(false);
   const handleOpen = (id) => {
     setOpen(true);
+    setIdData({ data: "Loading ...." });
     fetch(`https://lettyai-task-server.vercel.app/data/${id}`)
       .then((res) => res.json())
       .then((data) => setIdData(data));
-    console.log(idData);
   };
-  const handleClose = () => setOpen(false);
+  const handleClose = () => {
+    setOpen(false);
+    setIdData([]);
+  };
 
   const [message, setMessage] = useState("");
   const [data, setData] = useState([]);
